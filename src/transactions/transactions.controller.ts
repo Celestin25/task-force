@@ -6,20 +6,41 @@ import {
   Param,
   Patch,
   Delete,
+  UseGuards,
+  ParseUUIDPipe,
+  Req,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiParam } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiParam,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
 import {
   CreateTransactionDto,
   UpdateTransactionDto,
 } from './dto/transactions.dto';
+import { AuthGuard } from 'src/guards/auth.guard';
+import { TransactionService } from './transactions.service';
 
 @ApiTags('Transactions')
+@UseGuards(AuthGuard)
+@ApiBearerAuth()
 @Controller('transactions')
 export class TransactionsController {
-  @Post()
+  constructor(private readonly transactionService: TransactionService) {}
+  @Post('/:accountId')
   @ApiOperation({ summary: 'Create a new transaction' })
-  async create(@Body() createTransactionDto: CreateTransactionDto) {
-    return { message: 'Transaction created', data: createTransactionDto };
+  async create(
+    @Param('accountId', ParseUUIDPipe) accountId: string,
+    @Body() createTransactionDto: CreateTransactionDto,
+    @Req() req: any,
+  ) {
+    return this.transactionService.create({
+      createTransactionDto,
+      accountId,
+      userId: req.user.id,
+    });
   }
 
   @Get(':id')
