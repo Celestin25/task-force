@@ -4,12 +4,10 @@ A comprehensive web application for tracking personal finances across multiple a
 
 ## Project Links
 
-- [Backend Repository](https://github.com/yourusername/wallet-backend)
-- [React Frontend Repository](https://github.com/yourusername/wallet-frontend-react)
-- [Vue Frontend Repository](https://github.com/yourusername/wallet-frontend-vue)
-- [Live Demo (React)](https://wallet-react.vercel.app)
+- [Backend Repository](https://github.com/Celestin25/task-force)
+- [React Frontend Repository](https://github.com/Celestin25/wallet-fn)
 - [Live Demo (Vue)](https://wallet-vue.vercel.app)
-- [API Documentation](https://wallet-api.vercel.app/api-docs)
+- [API Documentation](https://task-force-9jsz.onrender.com/docs)
 
 ## Features
 
@@ -33,16 +31,11 @@ A comprehensive web application for tracking personal finances across multiple a
  - Filter by custom date ranges
  - Export reports in various formats
 
-- **Data Visualization**
- - Interactive charts and graphs
- - Expense distribution visualization
- - Income vs. Expense trends
-
 ## Tech Stack
 
 ### Backend (Next.js)
 - Node.js & Next.js API Routes
-- MongoDB for database
+- Postgres for database
 - JWT Authentication
 - RESTful API design
 - Swagger API documentation
@@ -57,21 +50,21 @@ A comprehensive web application for tracking personal finances across multiple a
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB
+- Next.js (v14 or higher)
+- Postgres
 - npm or yarn
 
 ### Backend Setup
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/wallet-backend
-cd wallet-backend
+git clone https://github.com/Celestin25/task-force.git
+cd TASKFORCE
 
 # Install dependencies
-npm install
+yarn install 
 
 # Set up environment variables
 cp .env.example .env
 
 # Start development server
-npm run dev
+yarn start:dev
